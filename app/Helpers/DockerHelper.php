@@ -51,6 +51,7 @@ class DockerHelper
                 $hosts = ' --add-host=artisan.local:172.18.0.1';
             }
             exec("docker run -d{$hosts} --name {$containerData['name']}{$envs} {$containerData['image']}", $output);
+            return ["docker run -d{$hosts} --name {$containerData['name']}{$envs} {$containerData['image']}"];
         }
         
         return $output;

@@ -71,9 +71,10 @@ class TenantBotController extends Controller
                 'image' => 'uchip-whatsapp-bot-image:latest'
             ];
             
-            DockerHelper::runContainer($data_container);
+            $command = DockerHelper::runContainer($data_container);
             return response()->json([
                 'status' => 'success',
+                'command' => $command,
                 'ip' => DockerHelper::getContainerIP($containerName)
             ]);
         }
